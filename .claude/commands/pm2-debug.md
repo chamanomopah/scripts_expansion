@@ -6,7 +6,7 @@ allowed-tools: Bash(pm2:*), Read, Edit, TodoWrite
 
 # Debug PM2 - Teste e Correção de Processos
 
-Comando para debug interativo de processos PM2. Analisa logs, identifica problemas, sugere correções e testa novamente.
+Comando para debug interativo de processos PM2. Analisa logs, identifica problemas, sugere correções e testa novamente. IMPORTANTE: SEMPRE QUE MODIFICAR UM ARQUIVO REINICIE-O NO PM2 USANDO O pm2 restart
 
 ## Uso
 - `/pm2-debug [nome-processo]` - Analisa logs e status do processo
