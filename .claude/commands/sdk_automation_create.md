@@ -1,6 +1,6 @@
 # Criar PoC com Claude Code SDK Python
 
-Cria scripts Python autocontidos para proof of concepts rápidos usando o Claude Code SDK em Python. Otimizado para funcionar imediatamente com Astral uv através de PEP 723 (inline dependencies). Carrega dinamicamente apenas as seções relevantes da documentação do SDK baseado no tipo de projeto do usuário, evitando sobrecarga de contexto.
+Cria scripts Python autocontidos para proof of concepts rápidos usando o Claude Code SDK em Python. Otimizado para funcionar imediatamente com Astral uv através de PEP 723 (inline dependencies). Carrega dinamicamente apenas as seções relevantes da documentação do SDK baseado no tipo de projeto do usuário, evitando sobrecarga de contexto. importante: não use EMOJIS
 
 **Quando usar**: Use este comando quando precisar criar rapidamente um PoC funcional que interaja com Claude Code SDK Python, seja para automação simples, conversação contínua, custom tools, hooks ou MCP servers.
 
