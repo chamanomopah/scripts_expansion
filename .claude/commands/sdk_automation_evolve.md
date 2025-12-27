@@ -1,6 +1,8 @@
 # Evoluir PoC do Claude Code SDK - Análise e Sugestões v2
 
-Analisa PoCs existentes criados com Claude Code SDK e gera relatório de melhorias especializadas. Use quando você tiver um PoC funcional que precisa evoluir para production-ready, ou quando quiser identificar oportunidades de usar features avançadas do SDK (custom tools, hooks, MCP servers, streaming). Siga ``Instruções`` para o fluxo completo de análise e relatório, e confirme os resultados em ``Relatório``.
+Analisa PoCs existentes criados com Claude Code SDK e gera relatório de melhorias especializadas. Use quando você tiver um PoC funcional que precisa evoluir para production-ready, ou quando quiser identificar oportunidades de usar features avançadas do SDK (custom tools, hooks, MCP servers, streaming).
+
+**IMPORTANTE**: Este comando agora segue fluxo interativo - primeiro apresenta as sugestões, coleta seu feedback, e só gera o report após sua confirmação explícita. Siga ``Instruções`` para o fluxo completo.
 
 ## Contexto & Variáveis
 
@@ -23,9 +25,9 @@ Analisa PoCs existentes criados com Claude Code SDK e gera relatório de melhori
 ## Análise de Contexto
 
 - **Complexidade**: alta (análise de código, planejamento, decisões do usuário)
-- **Interatividade**: alta (perguntas específicas, seleção de melhorias)
+- **Interatividade**: alta (perguntas específicas, seleção de melhorias, confirmação explícita)
 - **Dependências**: nenhuma (análise estática + conhecimento SDK)
-- **Validação Necessária**: não (relatório analítico)
+- **Validação Necessária**: sim (usuário deve confirmar explicitamente)
 - **Tipo Principal**: análise e planejamento de evolução
 
 ## Instruções Principais
@@ -210,19 +212,76 @@ Para implementar estas melhorias, consulte:
 **Analisado por**: Claude Code SDK Analyzer
 ```
 
-### 5. Interação com Usuário
+### 5. Apresentação e Coleta de Feedback
 
-**Após análise, perguntar:**
+**IMPORTANTE**: NÃO crie o report ainda! Primeiro apresente as sugestões de forma conversacional:
+
+```
+# 📊 Análise de Evolução: [nome_do_poc.py]
+
+Analisei seu PoC e identifiquei oportunidades de evolução...
+[Resumo rápido do padrões encontrados]
+
+## 🎯 Principais Oportunidades
+
+### Críticas (Implementar primeiro):
+1. [Melhoria crítica 1] - [breve descrição]
+2. [Melhoria crítica 2] - [breve descrição]
+
+### Importantes:
+1. [Melhoria importante 1] - [breve descrição]
+2. [Melhoria importante 2] - [breve descrição]
+
+### Nice-to-have:
+1. [Melhoria opcional 1] - [breve descrição]
+
+---
+
+🤔 **O que você achou dessas sugestões?**
+- Quais áreas quer priorizar?
+- Há alguma melhoria que não faz sentido para seu caso?
+- Quer que eu aprofunde em alguma sugestão específica?
+
+Me dê seu feedback que eu ajusto o relatório antes de gerar o version completo!
+```
+
+**Perguntas ao usuário:**
 - "Estas sugestões fazem sentido para seu caso?"
 - "Quer priorizar alguma área específica?"
 - "Há alguma melhoria que não gostaria de implementar?"
+- "Qual nível de complexidade você está confortável em abordar?"
 
-**Ajustar relatório baseado no feedback.**
+**Ajustar sugestões baseado no feedback:**
+- Remover melhorias que não interessam
+- Aprofundar nas áreas de prioridade
+- Reorganizar priorização conforme preferências
+
+### 6. Confirmação Explícita
+
+**ANTES de criar o report, perguntar:**
+```
+✨ **Pronto para gerar o report completo!**
+
+Baseado no seu feedback, vou criar um report detalhado com:
+- [X] Análise completa do PoC atual
+- [X] Sugestões priorizadas (críticas, importantes, nice-to-have)
+- [X] Instruções de implementação com referências ao SDK
+- [X] Roadmap de evolução em fases
+- [X] Seções específicas da documentação do SDK
+
+**Confirma que quer que eu gere o report agora?**
+Responda com "sim", "confirma" ou "pode gerar" para eu criar o arquivo.
+```
+
+### 7. Geração do Relatório (APENAS após confirmação)
 
 ## Critérios de Qualidade
 
 - Análise profunda do código existente
 - Perguntas relevantes para entender contexto
+- **Apresentação interativa** das sugestões antes de gerar report
+- **Coleta de feedback** e iteração nas ideias
+- **Confirmação explícita** do usuário antes de criar arquivo
 - Sugestões baseadas em features reais do SDK
 - Priorização clara (críticas vs nice-to-have)
 - Referências precisas à documentação (linhas)
@@ -230,7 +289,7 @@ Para implementar estas melhorias, consulte:
 
 ## Entrega & Finalização
 
-Após análise, apresente:
+**Após confirmação explícita do usuário** ("sim", "confirma", "pode gerar"), apresente:
 
 1. **Relatório completo** em formato markdown salvo como `[nome]_EVOLVE_REPORT.md`
 2. **Resumo executivo** (3-5 bullets principais)
@@ -239,9 +298,10 @@ Após análise, apresente:
 
 ## Relatório
 
-Ao final, confirme:
+Ao final (após confirmação do usuário), confirme:
 
 1. **Arquivo analisado**: `[caminho/para/poc.py]`
 2. **Relatório gerado**: `[caminho/para/poc_EVOLVE_REPORT.md]`
 3. **Total de sugestões**: `[X críticas, Y importantes, Z nice-to-have]`
 4. **Comando para implementação**: `/sdk_automation_implement [arquivo_poc]`
+5. **Confirmado por**: [usuário] às [timestamp]
